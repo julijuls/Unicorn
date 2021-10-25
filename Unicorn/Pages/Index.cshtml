@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
+<div class="text-center">
+    <table id="userTable" class="display" style="width:100%">
+    </table>
+</div>
+
+@section Scripts
+{
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+
+   
+
+    <script>
+        $(document).ready(function () {
+            $('#userTable').DataTable({
+                "ajax": {
+                    "url": 'http://localhost:50220/users',
+                    "type": "GET",
+                    "datatype": "json"
+
+                },
+                "columns": [
+                    { "sTitle": "Email", "data": "email" },
+                    { "sTitle": "First Name", "data": "firstName" },
+                    { "sTitle": "Last Name", "data": "lastName" },
+                    { "sTitle": "Address", "data": "address" },
+                    { "sTitle": "Phone Number", "data": "phoneNumber" },
+                    { "sTitle": "FacebookLink", "data": "facebookLink" },
+                    { "sTitle": "TwitterLink", "data": "twitterLink" }
+
+                ]
+            });
+        });
+    </script>
+}
