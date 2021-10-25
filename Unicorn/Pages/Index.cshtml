@@ -23,11 +23,12 @@
 
     <script>
         $(document).ready(function () {
-            $('#userTable').DataTable({
+            $('#userTable').dataTable({
                 "ajax": {
                     "url": 'http://localhost:50220/users',
                     "type": "GET",
-                    "datatype": "json"
+                    "datatype": "json",
+                    dataSrc:''
 
                 },
                 "columns": [
